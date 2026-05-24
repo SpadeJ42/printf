@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/24 02:35:48 by chenxiaoyu        #+#    #+#             */
-/*   Updated: 2026/05/24 22:47:29 by xiaochen         ###   ########.fr       */
+/*   Created: 2026/05/24 22:38:49 by xiaochen          #+#    #+#             */
+/*   Updated: 2026/05/24 22:46:36 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_unsigned_len(unsigned int n)
 {
-	int		i;
-	int		count;
-	va_list	args;
+	int	len;
 
-	i = 0;
-	count = 0;
-	va_start(args, format);
-	while (format[i])
+	len = 0;
+	if (n == 0)
+		len = 1;
+	while (n > 0)
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			count += ft_check_format(format[i], args);
-		}
-		else
-			count += write(1, &format[i], 1);
-		i++;
+		n /= 10;
+		len++;
 	}
-	va_end(args);
-	return (count);
+	return (len);
 }
 
-int	main(void)
+int	ft_print_unsigned(unsigned int n)
 {
-	printf("%u\n", 4294967295);
-	ft_printf("%u\n", 4294967295);
-	return (0);
+    char    c;
+
+    if (n >= 10)
+        ft_print_unsigned(n / 10);
+    c = (n % 10) + '0';
+    write(1, &c, 1);
+    return (ft_unsigned_len(n));
 }

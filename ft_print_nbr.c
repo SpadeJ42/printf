@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_nbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/24 02:35:48 by chenxiaoyu        #+#    #+#             */
-/*   Updated: 2026/05/24 22:47:29 by xiaochen         ###   ########.fr       */
+/*   Created: 2026/05/24 21:34:40 by xiaochen          #+#    #+#             */
+/*   Updated: 2026/05/24 22:10:20 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_nbrlen(int n)
 {
-	int		i;
-	int		count;
-	va_list	args;
+	int	len;
 
-	i = 0;
-	count = 0;
-	va_start(args, format);
-	while (format[i])
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n != 0)
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			count += ft_check_format(format[i], args);
-		}
-		else
-			count += write(1, &format[i], 1);
-		i++;
+		n /= 10;
+		len++;
 	}
-	va_end(args);
-	return (count);
+	return (len);
 }
 
-int	main(void)
+int ft_print_nbr(int n)
 {
-	printf("%u\n", 4294967295);
-	ft_printf("%u\n", 4294967295);
-	return (0);
+    ft_putnbr_fd(n, 1);
+    return (ft_nbrlen(n));
 }

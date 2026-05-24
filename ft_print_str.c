@@ -1,44 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/24 02:35:48 by chenxiaoyu        #+#    #+#             */
-/*   Updated: 2026/05/24 22:47:29 by xiaochen         ###   ########.fr       */
+/*   Created: 2026/05/24 21:23:43 by xiaochen          #+#    #+#             */
+/*   Updated: 2026/05/24 22:12:09 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_print_str(char *str)
 {
-	int		i;
-	int		count;
-	va_list	args;
+	int	i;
 
 	i = 0;
-	count = 0;
-	va_start(args, format);
-	while (format[i])
+	while (str[i])
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			count += ft_check_format(format[i], args);
-		}
-		else
-			count += write(1, &format[i], 1);
+		write(1, &str[i], 1);
 		i++;
 	}
-	va_end(args);
-	return (count);
-}
-
-int	main(void)
-{
-	printf("%u\n", 4294967295);
-	ft_printf("%u\n", 4294967295);
-	return (0);
+	return (i);
 }
