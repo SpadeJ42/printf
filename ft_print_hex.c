@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chenxiaoyu <chenxiaoyu@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/24 21:23:43 by xiaochen          #+#    #+#             */
-/*   Updated: 2026/05/27 18:33:10 by chenxiaoyu       ###   ########.fr       */
+/*   Created: 2026/05/27 17:05:47 by chenxiaoyu        #+#    #+#             */
+/*   Updated: 2026/05/27 17:51:30 by chenxiaoyu       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_str(char *str)
+int	ft_hex_len(unsigned int n)
 {
-	int	i;
+	int	len;
 
-	if (str == NULL)
-		return (write(1, "(null)", 6));
-	i = 0;
-	while (str[i])
+	len = 1;
+	while (n >= 16)
 	{
-		write(1, &str[i], 1);
-		i++;
+		n = n / 16;
+		len++;
 	}
-	return (i);
+	return (len);
+}
+
+int	ft_print_hex(unsigned int n, char *base)
+{
+	if (n >= 16)
+		ft_print_hex(n / 16, base);
+	write(1, &base[n % 16], 1);
+	return (ft_hex_len(n));
 }
