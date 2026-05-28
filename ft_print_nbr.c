@@ -6,20 +6,22 @@
 /*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 21:34:40 by xiaochen          #+#    #+#             */
-/*   Updated: 2026/05/28 15:41:25 by xiaochen         ###   ########.fr       */
+/*   Updated: 2026/05/28 20:23:24 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_nbrlen(int n)
+#include "ft_printf.h"
+
+int	ft_nbrlen(long n)
 {
 	int	len;
 
-	len = 0;
-	if (n <= 0)
+	len = 1;
+	if (n < 0)
 		len++;
-	while (n != 0)
+	while (n <= -10 || n >= 10)
 	{
 		n /= 10;
 		len++;
@@ -29,6 +31,20 @@ int	ft_nbrlen(int n)
 
 int	ft_print_nbr(int n)
 {
-	ft_putnbr_fd(n, 1);
-	return (ft_nbrlen(n));
+	long	nb;
+	int		len;
+	char	c;
+
+	nb = n;
+	len = ft_nbrlen(nb);
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 10)
+		ft_print_nbr(nb / 10);
+	c = (nb % 10) + '0';
+	write(1, &c, 1);
+	return (len);
 }

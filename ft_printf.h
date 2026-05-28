@@ -6,7 +6,7 @@
 /*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 02:14:31 by chenxiaoyu        #+#    #+#             */
-/*   Updated: 2026/05/28 15:44:35 by xiaochen         ###   ########.fr       */
+/*   Updated: 2026/05/28 20:25:02 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include "libft/libft.h"
 
 # if defined (__linux__)
 #  define PTRNULL "(nil)"
@@ -35,7 +34,7 @@ int	ft_print_hex(unsigned int n, char *base);
 int	ft_print_ptr(void *ptr);
 
 /* Helper Functions */
-int	ft_nbrlen(int n);
+int	ft_nbrlen(long n);
 int	ft_unsigned_len(unsigned int n);
 int	ft_hex_len(unsigned int n);
 int	ft_ptr_hex_len(unsigned long n);
