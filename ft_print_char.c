@@ -6,14 +6,14 @@
 /*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 20:48:26 by xiaochen          #+#    #+#             */
-/*   Updated: 2026/05/24 21:09:05 by xiaochen         ###   ########.fr       */
+/*   Updated: 2026/05/28 15:40:57 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_char(int c)
+int	ft_print_char(int c)
 {
-    write(1, &c, 1);
-    return (1);
+	write(1, &c, 1);
+	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chenxiaoyu <chenxiaoyu@student.42.fr>      +#+  +:+       +#+        */
+/*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 02:14:31 by chenxiaoyu        #+#    #+#             */
-/*   Updated: 2026/05/27 18:19:51 by chenxiaoyu       ###   ########.fr       */
+/*   Updated: 2026/05/28 15:44:35 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@
 #  define PTRNULL "0x0"
 # endif
 
-int ft_printf(const char *format, ...);
-int ft_check_format(char c, va_list args);
-int ft_print_char(int c);
-int ft_print_str(char *str);
-int ft_print_nbr(int n);
+int	ft_printf(const char *format, ...);
+int	ft_check_format(char c, va_list args);
+int	ft_print_char(int c);
+int	ft_print_str(char *str);
+int	ft_print_nbr(int n);
 int	ft_print_unsigned(unsigned int n);
 int	ft_print_hex(unsigned int n, char *base);
 int	ft_print_ptr(void *ptr);
 
 /* Helper Functions */
-int ft_nbrlen(int n);
+int	ft_nbrlen(int n);
 int	ft_unsigned_len(unsigned int n);
 int	ft_hex_len(unsigned int n);
 int	ft_ptr_hex_len(unsigned long n);

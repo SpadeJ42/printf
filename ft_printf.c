@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chenxiaoyu <chenxiaoyu@student.42.fr>      +#+  +:+       +#+        */
+/*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 02:35:48 by chenxiaoyu        #+#    #+#             */
-/*   Updated: 2026/05/27 18:28:53 by chenxiaoyu       ###   ########.fr       */
+/*   Updated: 2026/05/28 15:42:54 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,17 @@ int	main(void)
 	printf("mine return: %d\n", mine);
 
 	return (0);
-}*/
-
-#include <limits.h>
-
-int	main(void)
+}
 {
 	printf("REAL:\n");
 	printf("%u\n", -1);
 	printf("%x\n", 0);
-	printf("%s\n", (char *)NULL);
 	printf("%c\n", '\0');
 
 	printf("\nMINE:\n");
 	ft_printf("%u\n", -1);
 	ft_printf("%x\n", 0);
-	ft_printf("%s\n", (char *)NULL);
 	ft_printf("%c\n", '\0');
 
 	return (0);
-}
+}*/

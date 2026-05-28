@@ -6,7 +6,7 @@
 /*   By: xiaochen <xiaochen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 21:34:40 by xiaochen          #+#    #+#             */
-/*   Updated: 2026/05/24 22:10:20 by xiaochen         ###   ########.fr       */
+/*   Updated: 2026/05/28 15:41:25 by xiaochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	ft_nbrlen(int n)
 	return (len);
 }
 
-int ft_print_nbr(int n)
+int	ft_print_nbr(int n)
 {
-    ft_putnbr_fd(n, 1);
-    return (ft_nbrlen(n));
+	ft_putnbr_fd(n, 1);
+	return (ft_nbrlen(n));
 }
